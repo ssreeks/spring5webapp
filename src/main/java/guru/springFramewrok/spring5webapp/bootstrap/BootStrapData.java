@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.sql.SQLOutput;
-
 @Component
 public class BootStrapData implements CommandLineRunner {
 
@@ -57,18 +55,14 @@ public class BootStrapData implements CommandLineRunner {
         publisher.getBooks().add(teachYourself);
         teachYourself.setPublisher(publisher);
 
-
         addressRepository.save(publisherAddress1);
         addressRepository.save(publisherAddress2);
         publisherRepository.save(publisher);
-
-
 
         System.out.println("BookRepository Count=" + bookRepository.count());
         System.out.println("Publisher Count="+ publisherRepository.count());
         System.out.println("Address Count="+ addressRepository.count());
         System.out.println(" Published Books="+ publisher.getBooks().size());
         //publisherRepository.findAll().forEach(s->s.toString());
-
     }
 }
