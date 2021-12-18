@@ -47,23 +47,24 @@ public class BootStrapData implements CommandLineRunner {
         pearson.getBooks().add(teachYourself);
         teachYourself.getAuthors().add(pearson);
 
-
-        authorRepository.save(pearson);
-        bookRepository.save(teachYourself);
-        System.out.println("BookRepository Count=" + bookRepository.count());
-
         Address publisherAddress1 = new Address("4800 Fredericksburd Rd","San Antonio","Texas","78024");
         Address publisherAddress2 = new Address("1200 Fredericksburd Rd","San Antonio","Texas","78024");
         Publisher publisher = new Publisher("Dc Books", publisherAddress1);
         publisher.getBooks().add(teachYourself);
+        teachYourself.setPublisher(publisher);
 
 
         addressRepository.save(publisherAddress1);
         addressRepository.save(publisherAddress2);
         publisherRepository.save(publisher);
+        authorRepository.save(pearson);
+        bookRepository.save(teachYourself);
 
+
+        System.out.println("BookRepository Count=" + bookRepository.count());
         System.out.println("Publisher Count="+ publisherRepository.count());
         System.out.println("Address Count="+ addressRepository.count());
+        System.out.println(" Published Books="+ publisher.getBooks().size());
         //publisherRepository.findAll().forEach(s->s.toString());
 
     }
