@@ -1,9 +1,6 @@
 package guru.springFramewrok.spring5webapp.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Publisher {
@@ -12,6 +9,9 @@ public class Publisher {
     private Long id;
 
     String name;
+
+    @OneToOne( fetch=FetchType.LAZY)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
     Address address;
 
     public Publisher() {

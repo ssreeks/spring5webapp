@@ -1,11 +1,20 @@
 package guru.springFramewrok.spring5webapp.domain;
 
+import javax.persistence.*;
 
+@Entity
 public class Address {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     String addressLine1;
     String city;
     String state;
     String zip;
+
+    @OneToOne(mappedBy ="address")
+    Publisher publisher;
 
     public Address() {
     }
