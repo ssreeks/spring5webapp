@@ -53,9 +53,10 @@ public class BootStrapData implements CommandLineRunner {
         System.out.println("BookRepository Count=" + bookRepository.count());
 
         Address publisherAddress1 = new Address("4800 Fredericksburd Rd","San Antonio","Texas","78024");
-        Publisher publisher = new Publisher("Dc Books", publisherAddress1);
-
         Address publisherAddress2 = new Address("1200 Fredericksburd Rd","San Antonio","Texas","78024");
+        Publisher publisher = new Publisher("Dc Books", publisherAddress1);
+        publisher.getBooks().add(teachYourself);
+
 
         addressRepository.save(publisherAddress1);
         addressRepository.save(publisherAddress2);
@@ -63,6 +64,7 @@ public class BootStrapData implements CommandLineRunner {
 
         System.out.println("Publisher Count="+ publisherRepository.count());
         System.out.println("Address Count="+ addressRepository.count());
+        //publisherRepository.findAll().forEach(s->s.toString());
 
     }
 }
