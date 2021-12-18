@@ -38,14 +38,15 @@ public class BootStrapData implements CommandLineRunner {
         blach.getBooks().add(effectiveJava);
         effectiveJava.getAuthors().add(blach);
 
-
+        Author ballard = new Author("Moncur","Ballard");
+        Book teachYourself  = new Book("Teach Yourself JavaScript","1313");
+        ballard.getBooks().add(teachYourself);
+        teachYourself.getAuthors().add(ballard);
         authorRepository.save(blach);
         bookRepository.save(effectiveJava);
 
-        Author pearson = new Author("Moncur","Ballard");
-        Book teachYourself  = new Book("Teach Yourself JavaScript","1313");
-        pearson.getBooks().add(teachYourself);
-        teachYourself.getAuthors().add(pearson);
+        authorRepository.save(ballard);
+        bookRepository.save(teachYourself);
 
         Address publisherAddress1 = new Address("4800 Fredericksburd Rd","San Antonio","Texas","78024");
         Address publisherAddress2 = new Address("1200 Fredericksburd Rd","San Antonio","Texas","78024");
@@ -53,12 +54,14 @@ public class BootStrapData implements CommandLineRunner {
         publisher.getBooks().add(teachYourself);
         teachYourself.setPublisher(publisher);
 
+        publisher.getBooks().add(teachYourself);
+        teachYourself.setPublisher(publisher);
+
 
         addressRepository.save(publisherAddress1);
         addressRepository.save(publisherAddress2);
         publisherRepository.save(publisher);
-        authorRepository.save(pearson);
-        bookRepository.save(teachYourself);
+
 
 
         System.out.println("BookRepository Count=" + bookRepository.count());
