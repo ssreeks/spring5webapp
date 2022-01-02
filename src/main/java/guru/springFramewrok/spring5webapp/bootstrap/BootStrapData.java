@@ -31,6 +31,11 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+        Address publisherAddress1 = new Address("4800 Fredericksburd Rd","San Antonio","Texas","78024");
+        Address publisherAddress2 = new Address("1200 Fredericksburd Rd","San Antonio","Texas","78024");
+        Publisher publisher = new Publisher("Dc Books", publisherAddress1);
+
         Author blach = new Author("Blach","ERIC");
         Book effectiveJava = new Book("Effective Java","1212");
         blach.getBooks().add(effectiveJava);
@@ -46,11 +51,8 @@ public class BootStrapData implements CommandLineRunner {
         authorRepository.save(ballard);
         bookRepository.save(teachYourself);
 
-        Address publisherAddress1 = new Address("4800 Fredericksburd Rd","San Antonio","Texas","78024");
-        Address publisherAddress2 = new Address("1200 Fredericksburd Rd","San Antonio","Texas","78024");
-        Publisher publisher = new Publisher("Dc Books", publisherAddress1);
-        publisher.getBooks().add(teachYourself);
-        teachYourself.setPublisher(publisher);
+        publisher.getBooks().add(effectiveJava);
+        effectiveJava.setPublisher(publisher);
 
         publisher.getBooks().add(teachYourself);
         teachYourself.setPublisher(publisher);
