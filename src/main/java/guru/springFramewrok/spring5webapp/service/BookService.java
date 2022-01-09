@@ -1,4 +1,4 @@
-package guru.springFramewrok.spring5webapp;
+package guru.springFramewrok.spring5webapp.service;
 
 import guru.springFramewrok.spring5webapp.domain.Book;
 import guru.springFramewrok.spring5webapp.repositories.BookRepository;

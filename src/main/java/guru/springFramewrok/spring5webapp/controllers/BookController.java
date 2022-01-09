@@ -1,6 +1,6 @@
 package guru.springFramewrok.spring5webapp.controllers;
 
-import guru.springFramewrok.spring5webapp.BookService;
+import guru.springFramewrok.spring5webapp.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +21,6 @@ public class BookController {
     public String getBooks(Model model) {
 
         model.addAttribute("books",bookService.getAll());
-        return "books/list"  ;
+        return "books/book_list"  ;
     }
 }
